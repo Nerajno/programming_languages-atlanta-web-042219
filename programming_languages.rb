@@ -66,23 +66,16 @@ require 'pry'
 
 
 def reformat_languages(languages)
-  # your code here
-  hash = {}
-  new_hash ={}
-  languages.each do |languages_style, langs|
-    langs.each do |langs_names, lang_types|
-      # puts key,val,:style =>[lang_types]
-      #language = langs.key, the language type = langs.values,
-      #styles = lang_styles, for each language,
-      #use the language as the key & {the language type
-      #as key/val pair 1 and styles as key/val pair 2
-      #the style val is an array which is appended to/
-      #pushed if the value is not found.
-      new_hash[langs_names]=lang_types
-      new_hash.store(:style,[languages_style])
+  new_hash = {}
+  count =1
+    languages.each do |styles, lang|
+      lang.each do |key, val|
+        new_hash[lang.key]= lang.values
+        binding.pry
+        new_hash[style]= styles
+          
+        count +=1
+        puts new_hash
+      end
     end
-    hash.merge!(new_hash)
-  end
-  binding.pry
-  puts hash
 end
