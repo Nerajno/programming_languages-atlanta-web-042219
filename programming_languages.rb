@@ -64,18 +64,23 @@ require 'pry'
 #   }
 # }
 
-
+new_hash = {}
 def reformat_languages(languages)
-  new_hash = {}
-  count =1
+    style_hash = {}
     languages.each do |styles, lang|
-      lang.each do |key, val|
-        new_hash[lang.key]= lang.values
-        binding.pry
-        new_hash[style]= styles
-          
-        count +=1
-        puts new_hash
+      #iterate each lang
+      lang.each do |key, vals|
+      # binding.pry
+      new_hash[key]= {vals.keys => vals.values}
+      style_hash[:style]=[styles]
+      # new_hash.merge!(style_hash)
+      new_hash[key].store :style,[styles]
+      # binding.pry
+      new_hash
+      puts new_hash
       end
     end
+    new_hash.merge!(new_hash)
+    binding.pry
+    new_hash
 end
